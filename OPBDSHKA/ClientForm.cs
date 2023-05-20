@@ -39,7 +39,16 @@ namespace OPBDSHKA
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            Applic applic = new Applic();
+            applic.ShowDialog();
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            spisok spisok = new spisok();  
+            spisok.ShowDialog();
         }
     }
 }

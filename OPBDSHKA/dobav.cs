@@ -40,13 +40,20 @@ namespace OPBDSHKA
             string Street = textBox2.Text;
             int Nhouse = Convert.ToInt32(textBox3.Text);
             int Npod = Convert.ToInt32(textBox4.Text);
-            int Nflat = Convert.ToInt32(textBox5.Text);
-            int KolFlats = Convert.ToInt32(textBox6.Text);
-            int KolFlat = Convert.ToInt32(textBox7.Text);
-            int KolRooms = Convert.ToInt32(textBox8.Text);
+            int Nflat = Convert.ToInt32(textBox8.Text);
+
+            int KolFlats = Convert.ToInt32(textBox7.Text);
+                int etazh = Convert.ToInt32(textBox6.Text);
+                if (etazh> KolFlats)
+                {
+                    MessageBox.Show("Нет такого этажа!!");
+                    return;
+                }
+
+            int KolRooms = Convert.ToInt32(textBox5.Text);
             int Square = Convert.ToInt32(textBox9.Text);
             double Cost = Convert.ToDouble(textBox10.Text);
-            int IDflat = Convert.ToInt32(textBox11.Text);
+          
 
             string queryID = $"Select [Код пользователя] from Пользователи where Логин = '{Form1.loginUSER}' and Пароль = '{Form1.passUSER}'";
             SqlCommand commandID = new SqlCommand(queryID, dataBase.getConnection());
@@ -57,7 +64,7 @@ namespace OPBDSHKA
             if (double.TryParse(textBox10.Text, out Cost))
             {
 
-            var addQuery = $"insert into Квартиры VALUES({IDflat},'{District}','{Street}',{Nhouse},{Npod},{Nflat},{KolFlats},{KolFlat},{KolRooms},{Square},{Cost}, {usID})";
+            var addQuery = $"insert into Квартиры VALUES('{District}','{Street}',{Nhouse},{Npod},{Nflat},{KolFlats},{etazh},{KolRooms},{Square},{Cost}, {usID})";
             var command = new SqlCommand(addQuery, dataBase.getConnection());
                 dataBase.openConnection();
                 command.ExecuteNonQuery();
@@ -76,7 +83,19 @@ namespace OPBDSHKA
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void textBox11_TextChanged(object sender, EventArgs e)
+
+
+        private void dobav_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
         {
 
         }

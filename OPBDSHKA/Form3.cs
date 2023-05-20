@@ -26,7 +26,7 @@ namespace OPBDSHKA
        
         private void Form3_Load(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            
             string queryID = $"Select [Код пользователя] from Пользователи where Логин = '{Form1.loginUSER}' and Пароль = '{Form1.passUSER}'";
             SqlCommand commandID = new SqlCommand(queryID, dataBase.getConnection());
             dataBase.openConnection();
