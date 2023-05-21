@@ -57,10 +57,37 @@ namespace OPBDSHKA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int Wrooms = Convert.ToInt32(textBox4.Text);
+            try
+            {
+                int Wrooms = Convert.ToInt32(textBox4.Text);
             double Cost = Convert.ToDouble(textBox1.Text);
             string Distinct = comboBox1.SelectedItem.ToString();
-            string queryDOB = $"Insert into Заявки VALUES({usID}, {}, {},{},{},{})"
+            string status = "Активный";
+                DateTime currentDate = DateTime.Now.Date;
+                string queryID = $"Select [Код пользователя] from Пользователи where Логин = '{Form1.loginUSER}' and Пароль = '{Form1.passUSER}'";
+            SqlCommand commandID = new SqlCommand(queryID, dataBase.getConnection());
+            dataBase.openConnection();
+            int usID = Convert.ToInt32(commandID.ExecuteScalar());
+            dataBase.closeConnection();
+
+            string queryDOB = $"Insert into Заявки VALUES({usID}, GetDate(), {Cost},'{Distinct}',{Wrooms},'{status}')";
+            var commandDOB = new SqlCommand(queryDOB, dataBase.getConnection());
+            dataBase.openConnection();
+            
+                if (commandDOB.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Заявка успешно создана!!", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else {
+
+                }
+                    dataBase.closeConnection();
+      
+            this.Hide();
+
+                     } catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)

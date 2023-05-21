@@ -48,24 +48,32 @@ namespace OPBDSHKA
 
 
             dataBase.openConnection();
-            if(command.ExecuteNonQuery()==1)
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox4.Text != "" && textBox5.Text != ""&& textBox6.Text != "" && textBox7.Text != "" && textBox8.Text != "")
             {
-                MessageBox.Show("Аккаунт успешно создан!", "Успех!");
-                int usID = Convert.ToInt32(commandID.ExecuteScalar());
-                string querystring2 = $"insert into Клиенты VALUES({usID},'{surname}','{name}','{otchestvo}','{pasport}', '{telephone}');";
+                                    if(command.ExecuteNonQuery()==1 )
+                                    {
+                                        MessageBox.Show("Аккаунт успешно создан!", "Успех!");
+                                        int usID = Convert.ToInt32(commandID.ExecuteScalar());
+                                        string querystring2 = $"insert into Клиенты VALUES({usID},'{surname}','{name}','{otchestvo}','{pasport}', '{telephone}');";
 
-                SqlCommand command1 = new SqlCommand(querystring2, dataBase.getConnection());
-                command1.ExecuteNonQuery();
-                Form1 form1= new Form1();
-                this.Hide();
-                form1.ShowDialog();
+                                        SqlCommand command1 = new SqlCommand(querystring2, dataBase.getConnection());
+                                        command1.ExecuteNonQuery();
+                                        Form1 form1= new Form1();
+                                        this.Hide();
+                                        form1.ShowDialog();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Аккаунт не создан!");
+                                    }
+
             }
             else
             {
-                MessageBox.Show("Аккаунт не создан!");
+                MessageBox.Show("Заполните все поля!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
             dataBase.closeConnection();
+           
             
         }
             private Boolean checkuser()
