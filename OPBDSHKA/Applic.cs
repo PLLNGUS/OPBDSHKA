@@ -57,8 +57,8 @@ namespace OPBDSHKA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
+            /*try
+            {*/
                 int Wrooms = Convert.ToInt32(textBox4.Text);
             double Cost = Convert.ToDouble(textBox1.Text);
             string Distinct = comboBox1.SelectedItem.ToString();
@@ -82,11 +82,13 @@ namespace OPBDSHKA
 
                 }
                     dataBase.closeConnection();
-      
-            this.Hide();
 
-                     } catch (Exception ex) { MessageBox.Show(ex.Message); }
+                this.Hide();
+                ClientForm clientForm = new ClientForm();
+                clientForm.ShowDialog();
 
+          /*  } catch (Exception ex) { MessageBox.Show(ex.Message); }
+*/
 
         }
 

@@ -21,13 +21,19 @@ namespace OPBDSHKA
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string query = $"EXEC [Поиск процедур по заявке] ";
+         /*   int IDza;
+            string query = $"EXEC [Поиск процедур по заявке] {IDza} ";
             SqlCommand command = new SqlCommand(query, dataBase.getConnection());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
 
-            dataGridView1.DataSource = dataTable;
+            dataGridView1.DataSource = dataTable;*/
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

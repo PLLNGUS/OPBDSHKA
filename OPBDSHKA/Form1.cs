@@ -72,6 +72,13 @@ namespace OPBDSHKA
                     frm.Show();
                     
                 }
+                else if (role == "admin")
+                {
+                    ADMIN aDMIN = new ADMIN();
+                    this.Hide();
+                    aDMIN.Show();
+
+                }
             }
             else
                 MessageBox.Show("Такого аккаунта не существует!", "Аккаунта не существует!", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -50,5 +50,10 @@ namespace OPBDSHKA
             spisok spisok = new spisok();  
             spisok.ShowDialog();
         }
+
+        private void ClientForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -46,6 +46,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADMIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMIN.Designer.cs">
+      <DependentUpon>ADMIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminCAB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminCAB.Designer.cs">
+      <DependentUpon>adminCAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminDEAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminDEAL.Designer.cs">
+      <DependentUpon>adminDEAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminKV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminKV.Designer.cs">
+      <DependentUpon>adminKV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminORD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminORD.Designer.cs">
+      <DependentUpon>adminORD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminUS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminUS.Designer.cs">
+      <DependentUpon>adminUS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +151,24 @@
     <Compile Include="spisok.Designer.cs">
       <DependentUpon>spisok.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ADMIN.resx">
+      <DependentUpon>ADMIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminCAB.resx">
+      <DependentUpon>adminCAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminDEAL.resx">
+      <DependentUpon>adminDEAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminKV.resx">
+      <DependentUpon>adminKV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminORD.resx">
+      <DependentUpon>adminORD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminUS.resx">
+      <DependentUpon>adminUS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applic.resx">
       <DependentUpon>Applic.cs</DependentUpon>
     </EmbeddedResource>

@@ -51,5 +51,10 @@ namespace OPBDSHKA
             ClientForm clientForm = new ClientForm();
             clientForm.ShowDialog();
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

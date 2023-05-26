@@ -21,11 +21,12 @@ namespace OPBDSHKA
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            textBox7.UseSystemPasswordChar = true;
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -97,6 +98,30 @@ namespace OPBDSHKA
             this.Hide();
             Form1 form1 = new Form1();
             form1.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox7.UseSystemPasswordChar = false;
+            button4.Visible = true;
+            button2.Visible = false;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox7.UseSystemPasswordChar = true;
+            button4.Visible = false;
+            button2.Visible = true;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StretchImage(object sender, EventArgs e)
+        {
+
         }
     }
 }
