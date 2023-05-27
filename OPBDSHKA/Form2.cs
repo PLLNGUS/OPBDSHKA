@@ -31,16 +31,26 @@ namespace OPBDSHKA
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-           string name = textBox1.Text;
+
+            string name = textBox1.Text;
             string surname = textBox2.Text;
             string otchestvo = textBox3.Text;
-            string pasport = textBox4.Text;
-            string telephone = textBox5.Text;
+            string pasport = maskedTextBox2.Text;
+            string telephone = maskedTextBox1.Text;
             string loginUSER = textBox6.Text;
             string passUSER = textBox7.Text;
             string email = textBox8.Text;
-            string role = "client";
+            string role;
+            if (checkBox1.Checked)
+            {
+                role = "seller";
+            }
+            else
+            {
+                role = "client";
+            }
+            
+
 
             string querystring = $"insert into Пользователи VALUES('{loginUSER}','{passUSER}','{role}','{email}');";
             string queryID = $"Select [Код пользователя] from Пользователи where Логин = '{loginUSER}' and Пароль = '{passUSER}'";
@@ -49,19 +59,33 @@ namespace OPBDSHKA
 
 
             dataBase.openConnection();
-            if (textBox1.Text != "" && textBox2.Text != "" && textBox4.Text != "" && textBox5.Text != ""&& textBox6.Text != "" && textBox7.Text != "" && textBox8.Text != "")
+            if (textBox1.Text != "" && textBox2.Text != "" && maskedTextBox2.Text != "" && maskedTextBox1.Text != ""&& textBox6.Text != "" && textBox7.Text != "" && textBox8.Text != "")
             {
-                                    if(command.ExecuteNonQuery()==1 )
-                                    {
-                                        MessageBox.Show("Аккаунт успешно создан!", "Успех!");
-                                        int usID = Convert.ToInt32(commandID.ExecuteScalar());
-                                        string querystring2 = $"insert into Клиенты VALUES({usID},'{surname}','{name}','{otchestvo}','{pasport}', '{telephone}');";
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Аккаунт успешно создан!", "Успех!");
+                    int usID = Convert.ToInt32(commandID.ExecuteScalar());
+                    if (checkBox1.Checked)
+                    {
+                        string querystring4 = $"insert into Продавцы VALUES({usID},'{surname}','{name}','{otchestvo}','{pasport}', '{telephone}');";
 
-                                        SqlCommand command1 = new SqlCommand(querystring2, dataBase.getConnection());
-                                        command1.ExecuteNonQuery();
-                                        Form1 form1= new Form1();
-                                        this.Hide();
-                                        form1.ShowDialog();
+                        SqlCommand command1 = new SqlCommand(querystring4, dataBase.getConnection());
+                        command1.ExecuteNonQuery();
+                        Form1 form1 = new Form1();
+                        this.Hide();
+                        form1.ShowDialog();
+                    }
+                    else
+                    {
+                        string querystring2 = $"insert into Клиенты VALUES({usID},'{surname}','{name}','{otchestvo}','{pasport}', '{telephone}');";
+                        SqlCommand command1 = new SqlCommand(querystring2, dataBase.getConnection());
+                        command1.ExecuteNonQuery();
+                        Form1 form1 = new Form1();
+                        this.Hide();
+                        form1.ShowDialog();
+                    }
+
+
                                     }
                                     else
                                     {
@@ -75,6 +99,8 @@ namespace OPBDSHKA
             }
             dataBase.closeConnection();
            
+
+            
             
         }
             private Boolean checkuser()
@@ -120,6 +146,11 @@ namespace OPBDSHKA
         }
 
         private void StretchImage(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

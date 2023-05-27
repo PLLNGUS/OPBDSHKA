@@ -56,5 +56,12 @@ namespace OPBDSHKA
             adminORD adminORD = new adminORD();
             adminORD.ShowDialog();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            adminSDELKI adminSDELKI = new adminSDELKI();
+            adminSDELKI.ShowDialog();
+        }
     }
 }

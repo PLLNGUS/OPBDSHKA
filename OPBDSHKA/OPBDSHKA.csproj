@@ -76,6 +76,12 @@
     <Compile Include="adminORD.Designer.cs">
       <DependentUpon>adminORD.cs</DependentUpon>
     </Compile>
+    <Compile Include="adminSDELKI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminSDELKI.Designer.cs">
+      <DependentUpon>adminSDELKI.cs</DependentUpon>
+    </Compile>
     <Compile Include="adminUS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="adminORD.resx">
       <DependentUpon>adminORD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminSDELKI.resx">
+      <DependentUpon>adminSDELKI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="adminUS.resx">
       <DependentUpon>adminUS.cs</DependentUpon>
